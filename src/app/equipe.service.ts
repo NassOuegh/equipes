@@ -14,4 +14,7 @@ export class EquipeService {
     return this.http.get(this.baseurl);
   }
 
+  public postEquipe(req){
+    return this.http.post(this.baseurl, req);
+  }
 }

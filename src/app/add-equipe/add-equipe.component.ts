@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EquipeService } from '../equipe.service';
 
 @Component({
   selector: 'app-add-equipe',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEquipeComponent implements OnInit {
 
-  constructor() { }
+  equipe;
+
+  constructor(private service: EquipeService) { }
 
   ngOnInit(): void {
+    this.equipe = this.service.postEquipe({
+      "id": 6,
+      "name":"MYTEAM",
+      "country": "World"
+  })
   }
 
 }
