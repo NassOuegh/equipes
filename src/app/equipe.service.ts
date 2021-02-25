@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Equipe } from './entities/models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,13 @@ export class EquipeService {
     return this.http.get(this.baseurl);
   }
 
-  public postEquipe(req){
-    return this.http.post(this.baseurl, req);
+  public postEquipe(equipe: Equipe){
+    return this.http.post(this.baseurl, equipe);
+  }
+  public updateEquipe(equipe: Equipe){
+    return this.http.put(this.baseurl, equipe);
+  }
+  public deleteEquipe(equipe: Equipe){
+    return this.http.delete(this.baseurl+'/'+equipe.id);
   }
 }
